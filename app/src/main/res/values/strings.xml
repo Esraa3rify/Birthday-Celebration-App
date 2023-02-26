@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">remindName</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="start">Start</string>
+    <string name="en">En</string>
+    <string name="how_old_is_the_person">How old is the person?</string>
+
+    <string name="name">name</string>
+    <string name="blow_out_the_candles">Blow Out The candles</string>
+</resources>
