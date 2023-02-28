@@ -1,4 +1,4 @@
-package com.example.remindname.fragments
+package com.example.remindname.ui.fragments.recognition
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,10 +9,12 @@ import android.widget.Toast
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
 import androidx.lifecycle.ViewModelProvider
-import com.example.remindname.MainActivity
+import com.example.remindname.ui.activities.MainActivity
 import com.example.remindname.R
 import com.example.remindname.listeners.OnFindFaceListener
 import com.example.remindname.model.FindFaceResponseModel
+import com.example.remindname.ui.fragments.BlowOutFragment
+import com.example.remindname.ui.fragments.nameFragment.EnterNameFragment
 import com.example.remindname.viewmodels.FaceRecognitionViewModel
 import kotlinx.android.synthetic.main.fragment_recognition.*
 
@@ -82,7 +84,7 @@ class RecognitionFragment : Fragment(), ImageCapture.OnImageSavedCallback, OnFin
     }
 
     override fun onFaceFoundSuccess(findFaceResponseModel: FindFaceResponseModel) {
-        val fragment =  EnterNameFragment()
+        val fragment = BlowOutFragment()
         mainActivity.changeFragment(fragment,
             Bundle().apply {
                 putSerializable("face_data",findFaceResponseModel)
@@ -93,7 +95,15 @@ class RecognitionFragment : Fragment(), ImageCapture.OnImageSavedCallback, OnFin
 
     override fun onFaceNotFailed(msg:String) {
 
-        mainActivity.changeFragment(BlowOutFragment())
+
+        val fragment = EnterNameFragment()
+        mainActivity.changeFragment(fragment,
+            Bundle().apply {
+               // putSerializable("face_data",findFaceResponseModel)
+                putString("image_path",mainActivity.cameraHelper?.currentSavedFile?.absolutePath)
+            }
+        )
+       // mainActivity.changeFragment(EnterNameFragment())
 
     }
 

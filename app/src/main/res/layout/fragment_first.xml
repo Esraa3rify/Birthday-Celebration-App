@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".fragments.FirstFragment">
+    tools:context=".ui.fragments.FirstFragment">
 
     <include
         android:id="@+id/include6"
@@ -17,13 +17,13 @@
         android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="70dp"
         android:gravity="center_horizontal|center_vertical"
         android:text="Let me sing a Happy Birthday \n song!"
         android:textColor="@color/txtclr"
         android:textSize="50dp"
         android:visibility="visible"
-        android:layout_marginLeft="200dp"
-        android:layout_marginTop="100dp"
         app:layout_constraintBottom_toTopOf="@id/btn_start"
         app:layout_constraintEnd_toStartOf="@id/guideline2"
         app:layout_constraintHorizontal_bias="0.0"
@@ -31,12 +31,11 @@
         app:layout_constraintTop_toBottomOf="@+id/include6"
         tools:ignore="MissingConstraints" />
 
-
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_start"
         android:layout_width="195dp"
         android:layout_height="73dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/button_bg"
         android:paddingHorizontal="50dp"
         android:paddingVertical="15dp"
@@ -45,7 +44,7 @@
         android:textColor="@color/white"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="@+id/guideline2"
-        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/text" />
 

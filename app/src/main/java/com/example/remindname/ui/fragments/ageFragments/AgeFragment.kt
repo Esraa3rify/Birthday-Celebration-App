@@ -1,21 +1,14 @@
-package com.example.remindname.fragments
+package com.example.remindname.ui.fragments.ageFragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.widget.addTextChangedListener
-import androidx.lifecycle.ViewModelProvider
-import com.example.remindname.MainActivity
+import com.example.remindname.ui.activities.MainActivity
 import com.example.remindname.R
-import com.example.remindname.listeners.OnAddNewFaceListener
-import com.example.remindname.model.AddNewFaceResponseModel
 import com.example.remindname.viewmodels.FaceRecognitionViewModel
 import kotlinx.android.synthetic.main.fragment_age.*
-import kotlinx.android.synthetic.main.fragment_enter_name.*
-import java.io.File
-
 
 
 class AgeFragment : Fragment(){
@@ -86,7 +79,7 @@ class AgeFragment : Fragment(){
 
 
             age_constraint_layout.setOnClickListener {
-                mainActivity.hideKeyboard()
+             //   mainActivity.hideKeyboard()
             }
         }
 

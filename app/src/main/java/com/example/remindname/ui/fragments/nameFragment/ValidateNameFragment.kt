@@ -1,4 +1,4 @@
-package com.example.remindname.fragments
+package com.example.remindname.ui.fragments.nameFragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,14 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
-import com.example.remindname.MainActivity
+import com.example.remindname.ui.activities.MainActivity
 import com.example.remindname.R
 import com.example.remindname.listeners.OnAddNewFaceListener
-import com.example.remindname.listeners.OnFindFaceListener
 import com.example.remindname.model.AddNewFaceResponseModel
-import com.example.remindname.model.FindFaceResponseModel
+import com.example.remindname.ui.fragments.ageFragments.AgeFragment
 import com.example.remindname.viewmodels.FaceRecognitionViewModel
-import kotlinx.android.synthetic.main.fragment_enter_name.*
 import kotlinx.android.synthetic.main.fragment_validate_name.*
 import java.io.File
 
@@ -49,7 +47,7 @@ class ValidateNameFragment : Fragment() ,OnAddNewFaceListener {
         textargs2.text=inputData.toString()
 
         yes_btn.setOnClickListener {
-            mainActivity.hideKeyboard()
+          //  mainActivity.hideKeyboard()
             arguments?.let {
               val imgPath = it.getString("image_path")!!
                 val fullName = it.getString("full_name")!!
@@ -76,7 +74,7 @@ class ValidateNameFragment : Fragment() ,OnAddNewFaceListener {
 
 
       validate_name_constraint_layout.setOnClickListener {
-            mainActivity.hideKeyboard()
+           // mainActivity.hideKeyboard()
         }
     }
 

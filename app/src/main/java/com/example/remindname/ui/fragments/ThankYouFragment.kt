@@ -1,4 +1,4 @@
-package com.example.remindname.fragments
+package com.example.remindname.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

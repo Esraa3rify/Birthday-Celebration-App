@@ -1,13 +1,15 @@
-package com.example.remindname.fragments
+package com.example.remindname.ui.fragments.nameFragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.widget.addTextChangedListener
-import com.example.remindname.MainActivity
+import com.example.remindname.ui.activities.MainActivity
 import com.example.remindname.R
+import com.example.remindname.listeners.OnAddNewFaceListener
+import com.example.remindname.model.AddNewFaceResponseModel
+import com.example.remindname.ui.fragments.ageFragments.AgeFragment
 import kotlinx.android.synthetic.main.fragment_enter_name.*
 
 class EnterNameFragment : Fragment() {
@@ -64,23 +66,23 @@ class EnterNameFragment : Fragment() {
 //        fragment.arguments=bundle
 //        // Setting On Click Listener
 
-        mainActivity.hideKeyboard()
+     //   mainActivity.hideKeyboard()
         val imagePath = arguments?.getString("image_path")
         imagePath?.let { image ->
 
             proceedBtn.setOnClickListener {
 
-                mainActivity.hideKeyboard()
+            //    mainActivity.hideKeyboard()
                 val fullName = etVisitorName.text.toString()
 
-                gotoValidateFragment(image, fullName)
+               gotoValidateFragment(image, fullName)
 
 
 
             }
         }
         enter_name_constraint_layout.setOnClickListener {
-            mainActivity.hideKeyboard()
+         //   mainActivity.hideKeyboard()
         }
     }
 
@@ -94,4 +96,12 @@ class EnterNameFragment : Fragment() {
                 putString("full_name",fullName)
             })
     }
-    }
+
+//    override fun onAddNewFaceSuccess(addNewFaceResponseModel: AddNewFaceResponseModel) {
+//        mainActivity.changeFragment(ValidateNameFragment())
+//    }
+//
+//    override fun onAddNewFaceFailed(msg: String) {
+//        mainActivity.changeFragment(ValidateNameFragment())
+//    }
+}

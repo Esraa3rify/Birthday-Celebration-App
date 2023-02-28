@@ -1,4 +1,4 @@
-package com.example.remindname.fragments
+package com.example.remindname.ui.fragments
 
 
 
@@ -6,7 +6,6 @@ import android.app.Activity
 import android.content.ContentValues
 import android.content.Intent
 import android.graphics.Bitmap
-import android.icu.number.NumberFormatter.with
 import android.media.ThumbnailUtils
 import android.os.Bundle
 import android.provider.MediaStore
@@ -19,9 +18,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
 
-import com.example.remindname.MainActivity
+import com.example.remindname.ui.activities.MainActivity
 import com.example.remindname.R
 import com.example.remindname.ml.ModelUnquant
+import com.example.remindname.ui.fragments.nameFragment.EnterNameFragment
 import kotlinx.android.synthetic.main.fragment_start.*
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer

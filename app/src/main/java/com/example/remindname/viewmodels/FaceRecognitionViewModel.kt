@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.remindname.fragments.ValidateNameFragment
+import com.example.remindname.ui.fragments.nameFragment.ValidateNameFragment
 import com.example.remindname.listeners.OnFindFaceListener
 import com.example.remindname.repo.FaceRecognitionRepo
 import kotlinx.coroutines.launch
