@@ -47,10 +47,11 @@ class RecognitionFragment : Fragment(), ImageCapture.OnImageSavedCallback, OnFin
             {
                 setImageSaveCallback(this@RecognitionFragment)
                 initStartCamera(
+
                     searching_face_preview_view.display.rotation,
                     searching_face_preview_view.surfaceProvider
                 )
-         mainActivity.cameraTimerHandler.postDelayed({takePicture()},1000)
+         mainActivity.cameraTimerHandler.postDelayed({takePicture()},3000)
             }
         }
     }

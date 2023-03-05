@@ -13,11 +13,10 @@ import com.example.remindname.R
 import com.example.remindname.camera.CameraHelper
 import com.example.remindname.ui.fragments.FirstFragment
 import com.robotemi.sdk.Robot
-import com.robotemi.sdk.TtsRequest
 import com.robotemi.sdk.listeners.OnRobotReadyListener
 
 
-class MainActivity : AppCompatActivity() ,OnRobotReadyListener {
+class MainActivity : AppCompatActivity(),OnRobotReadyListener {
 
  private lateinit var sRobot: Robot
 
@@ -27,27 +26,28 @@ class MainActivity : AppCompatActivity() ,OnRobotReadyListener {
         super.onCreate(savedInstanceState)
        //forcedActivityFullScreen()
         setContentView(R.layout.activity_main)
-       // cameraHelper = CameraHelper(this, this)
+        cameraHelper = CameraHelper(this, this)
 
         // Initialize robot instance
-       //sRobot = Robot.getInstance();
-        cameraHelper = CameraHelper(this, this)
+        sRobot = Robot.getInstance();
+       // cameraHelper = CameraHelper(this, this)
         changeFragment(FirstFragment())
     }
 
 
     override fun onStart() {
         super.onStart()
+        sRobot!!.addOnRobotReadyListener(this);
 
         // Add robot event listeners
-        Robot.getInstance().addOnRobotReadyListener(this);
+       // Robot.getInstance().addOnRobotReadyListener(this);
     }
-
+//
     override fun onStop() {
         super.onStop()
 
         // Remove robot event listeners
-        Robot.getInstance().removeOnRobotReadyListener(this);
+        sRobot!!.removeOnRobotReadyListener(this);
     }
 //
 //    private fun forcedActivityFullScreen()
@@ -59,6 +59,7 @@ class MainActivity : AppCompatActivity() ,OnRobotReadyListener {
 //                or View.SYSTEM_UI_FLAG_FULLSCREEN
 //                or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
 //    }
+
     fun changeFragment(fragment: Fragment,args:Bundle?=null)
     {
         fragment.arguments = args
@@ -68,14 +69,15 @@ class MainActivity : AppCompatActivity() ,OnRobotReadyListener {
             .commit()
     }
 
+
     override fun onRobotReady(isReady: Boolean) {
         if (isReady) {
 
             sRobot.hideTopBar() // hide temi's top action bar when skill is active
 
             // When robot is ready
-            val ttsRequest = TtsRequest.create("Hello World, that is Celebration message", false)
-            sRobot.speak(ttsRequest)
+//            val ttsRequest = TtsRequest.create("Hello World, that is Celebration message", false)
+//            sRobot.speak(ttsRequest)
         }
     }
 //    fun hideKeyboard()
@@ -86,6 +88,8 @@ class MainActivity : AppCompatActivity() ,OnRobotReadyListener {
 //        }
 //       forcedActivityFullScreen()
 //    }
+
+
     fun destroyAllTimerHandlers()
     {
         cameraTimerHandler.removeCallbacksAndMessages(null)
